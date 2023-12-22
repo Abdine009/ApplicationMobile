@@ -1,0 +1,48 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title color="primary">
+      Ajouter un étudiant
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary" routerLink="/settings">
+        <ion-icon slot="icon-only" name="cog"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item color="primary" button detail="false"></ion-item>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card color="primary">
+    <ion-card-content >
+      <form [formGroup]="etudiantForm">
+        <ion-list>
+          <ion-item>
+            <ion-label>Nom: </ion-label>
+            <ion-input label="Nom" labelPlacement="floating" type="text" formControlName="etudiantNom"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Prenom:</ion-label>
+            <ion-input label="Prenom" labelPlacement="floating" type="text" formControlName="etudiantPrenom"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Classe:</ion-label>
+            <ion-input label="Classe" labelPlacement="floating" type="text" formControlName="etudiantClasse"></ion-input>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+    <ion-button (click)="addEtudiant()" expand="block">{{ btnTitle }}</ion-button>
+  </ion-card>
+  
+</ion-content>

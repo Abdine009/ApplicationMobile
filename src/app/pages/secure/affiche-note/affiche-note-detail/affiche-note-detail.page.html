@@ -1,0 +1,61 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" text="Liste des étudiants" defaultHref="/affiche-note"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>
+        <ion-text color="success"> <h1> <b>Moyenne générale : {{moyennesEtudiant}} </b></h1> </ion-text>
+      </ion-label>
+    </ion-list-header>
+
+    
+      <ion-item color="primary" [routerLink]="['/add-note', item.id]" *ngFor="let item of notes">
+        <ion-list class="list-custom" lines="full">
+      <br>
+      <br>
+      <ion-item color="primary">
+        <ion-badge>
+          <h4><b><u>Matière:</u></b></h4>
+        </ion-badge>
+        <ion-badge slot="end"><h5>{{ item.matiere}}</h5></ion-badge>
+      </ion-item>
+      <br>
+      <ion-item color="primary">
+        <ion-badge>
+          <h4><b><u>Note:</u></b></h4>
+        </ion-badge>
+        <ion-badge slot="end"><h4>{{ item.note}}</h4></ion-badge>
+      </ion-item>
+      <br>
+      <ion-item color="primary">
+        <ion-badge>
+          <h4><b><u>Coeficient:</u></b></h4>
+        </ion-badge>
+        <ion-badge slot="end"><h4>{{ item.coeficient}}</h4></ion-badge>
+      </ion-item>
+      <hr class="hr-medium">
+    </ion-list>
+    
+    </ion-item>
+    
+   
+  </div>
+  <hr class="hr-medium">
+  
+  <ion-fab class="ion-fab-custom" vertical="bottom" horizontal="center" slot="fixed" (click)="navToStudent()">
+    <ion-fab-button color="dark">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

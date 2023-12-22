@@ -1,0 +1,57 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button color="secondary" text="Liste des étudiants" defaultHref="/affiche-note"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Information sur la moyenne de l'étudiant
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="ion-padding">
+
+    <ion-list-header class="ion-list-header-small">
+      <ion-label>
+        
+      </ion-label>
+    </ion-list-header>
+
+    
+     
+        <ion-list class="list-custom" lines="full">
+      <ion-item color="primary">
+        <ion-badge>
+          <h4>Moyenne semestre 1:  </h4>
+          <br>
+        </ion-badge>
+        
+        <ion-badge  mode="android" slot="end"><h4></h4></ion-badge>
+      </ion-item>
+      <br>
+      <ion-item color="primary">
+        <ion-badge>
+          <h4>Moyenne semestre 2: </h4>
+        </ion-badge>
+        <ion-badge color="" mode="android" slot="end"><h5></h5></ion-badge>
+      </ion-item>
+      <br>
+      <br>
+      <br>
+      <br>
+      <ion-item color="primary">
+        <ion-badge>
+          <h4>Moyenne générale: </h4>
+        </ion-badge>
+        <ion-badge mode="android" slot="end"><h4></h4></ion-badge>
+      </ion-item>
+    </ion-list>
+
+   
+  </div>
+  <hr class="hr-medium">
+  
+
+</ion-content>

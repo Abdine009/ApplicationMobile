@@ -1,0 +1,67 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title color="light">
+      Notes des étudiants
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar class="toolbar-search">
+      <ion-searchbar color="dark" showCancelButton="focus" placeholder="Recherche ..."></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-padding">
+    <!-- Skeletons -->
+    <ng-container *ngIf="!content_loaded">
+
+      <ion-list-header class="ion-list-header-small">
+        <ion-label><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-label>
+        <ion-note color="tertiary" class="ion-note-small">
+          <ion-skeleton-text animated style="width: 40px"></ion-skeleton-text>
+        </ion-note>
+      </ion-list-header>
+
+      <ion-list class="list-custom animate__animated animate__fadeIn" lines="full">
+        <ion-item color="primary" button detail="false" *ngFor="let i of [].constructor(12);">
+          <ion-avatar slot="start" class="ion-avatar-default-icon">
+            <ion-skeleton-text animated></ion-skeleton-text>
+          </ion-avatar>
+          <ion-label>
+            <h3><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h3>
+            <p><ion-skeleton-text animated style="width: 75%"></ion-skeleton-text></p>
+          </ion-label>
+          <ion-skeleton-text slot="end" animated style="width: 15%"></ion-skeleton-text>
+        </ion-item>
+      </ion-list>
+
+    </ng-container>
+
+    <ng-container *ngIf="content_loaded">
+
+      <ion-list-header class="ion-list-header-small">
+        <ion-label color="tertiary">Liste des étudiants </ion-label>
+      </ion-list-header>
+
+      <ion-list class="list-custom animate__animated animate__fadeIn" lines="full" *ngIf="content_loaded">
+        <ion-item color="primary" *ngFor="let etudiant of etudiants">
+        <ion-item color="primary" button [routerLink]="['/affiche-note/detail', etudiant.id]" detail="false">
+          <ion-avatar slot="start" class="ion-avatar-default-icon">
+            <ion-icon color="tertiary" size="large" name="person"></ion-icon>
+          </ion-avatar>
+
+          <ion-label>
+            <h2><u><b>Nom:</b></u> {{ etudiant.etudiantNom }}</h2>
+        <h2><u><b>Prenom:</b></u> {{ etudiant.etudiantPrenom }}</h2>
+        <h2><u><b>Classe:</b></u> {{ etudiant.etudiantClasse }}</h2>
+          </ion-label>
+          <ion-button color="success" color="dark" slot="end">Notes</ion-button>
+        </ion-item>
+      </ion-item>
+      </ion-list>
+    </ng-container>
+    <hr class="hr-medium">
+  </div>
+</ion-content>

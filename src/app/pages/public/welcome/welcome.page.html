@@ -1,0 +1,46 @@
+<ion-content>
+  <swiper class="swiper-welcome" #swiper [config]="config" (slideChange)="swiperSlideChanged($event)"
+    (reachEnd)="onLastSlide()">
+    <ng-template swiperSlide>
+      <img alt="logo" src="../../../../assets/eduScore-logo.png" />
+      <!-- <ion-icon name="logo-angular" class="animate__animated animate__fadeInDown"></ion-icon> -->
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="light">Bienvenue sur EduScore</ion-text>
+      </h3>
+      
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <img alt="logo" src="../../../../assets/etudiant.jpg" />
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="light">Liste des étudiants</ion-text>
+      </h3>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="medium">Vous trouverez la liste des étudiants de la classe</ion-text>
+      </p>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <img alt="logo" src="../../../../assets/notes.jpg" />
+
+      <h3 class="animate__animated animate__fadeInUp">
+        <ion-text color="light">Notes des étudiants</ion-text>
+      </h3>
+      <p class="animate__animated animate__fadeInUp">
+        <ion-text color="medium">Vous trouverez les différentes notes des étudiants du semestre</ion-text>
+      </p>
+    </ng-template>
+  </swiper>
+</ion-content>
+
+<ion-footer class="ion-padding-bottom-large animate__animated animate__fadeInUp">
+  <ion-button class="ion-margin" expand="block" size="large" color="secondary" (click)="nextSlide()" *ngIf="!last_slide">
+    Suivant
+    <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+  </ion-button>
+  <ion-button class="ion-margin" expand="block" size="large" color="secondary" (click)="getStarted()" *ngIf="last_slide">
+    Ouvrir
+  </ion-button>
+</ion-footer>

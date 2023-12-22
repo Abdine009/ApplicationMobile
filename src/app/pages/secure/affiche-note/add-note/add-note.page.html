@@ -1,0 +1,48 @@
+<ion-header collapse="fade" [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title color="primary">
+      Ajouter une note
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button color="secondary" routerLink="/settings">
+        <ion-icon slot="icon-only" name="cog"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item color="primary" button detail="false"></ion-item>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-card color="primary">
+    <ion-card-content >
+      <form [formGroup]="noteForm">
+
+        <ion-list>
+          <ion-item>
+            <ion-label>Matiere:</ion-label>
+            <ion-input label="Matiere" labelPlacement="floating" type="text" formControlName="matiere"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Note :</ion-label>
+            <ion-input label="Note" labelPlacement="floating" type="text" formControlName="note"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Coeficient :</ion-label>
+            <ion-input label="Coeficient" labelPlacement="floating" type="text" formControlName="coeficient"></ion-input>
+          </ion-item>
+        </ion-list>
+      </form>
+    </ion-card-content>
+    <ion-button (click)="addNote()" expand="block">{{ btnTitle }}</ion-button>
+  </ion-card>
+</ion-content>
